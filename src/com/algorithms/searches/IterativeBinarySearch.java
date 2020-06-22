@@ -28,9 +28,6 @@ import static java.lang.String.format;
  */
 public class IterativeBinarySearch implements SearchAlgorithm{
 
-    private static Random number;
-    private static Integer target;
-
     /**
      * This method implements an iterative version of binary search algorithm
      *
@@ -52,10 +49,10 @@ public class IterativeBinarySearch implements SearchAlgorithm{
                 return middle;
             }
             else if (compare < 0){
-                right = middle--;
+                right = --middle;
             }
             else {
-                left = middle++;
+                left = ++middle;
             }
         }
         return -1;
@@ -68,7 +65,7 @@ public class IterativeBinarySearch implements SearchAlgorithm{
         int maxElement = 200;
         Integer[] integers = IntStream.generate(() -> number.nextInt(maxElement)).limit(size).sorted().boxed().toArray(Integer[]::new);
 
-        target = integers[number.nextInt(size - 1)];
+        Integer target = integers[number.nextInt(size - 1)];
 
         IterativeBinarySearch search = new IterativeBinarySearch();
         int atIndex = search.find(integers, target);

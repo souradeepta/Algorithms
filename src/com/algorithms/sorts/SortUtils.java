@@ -1,7 +1,5 @@
 package com.algorithms.sorts;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,7 +18,13 @@ public final class SortUtils {
      * @param idx   index of the first element
      * @param idy   index of the second element
      */
-    static <T> boolean swap(T @NotNull []array, int idx, int idy){
+//    static <T> boolean swap(T first, T second){
+//        T temp = first;
+//        first = second;
+//        second = temp;
+//        return true;
+//    }
+    static <T> boolean swap(T[] array, int idx, int idy){
         T temp = array[idx];
         array[idx] = array[idy];
         array[idy] = temp;
@@ -35,6 +39,7 @@ public final class SortUtils {
      * @return true if the first element is less then the second element
      */
     static <T extends Comparable<T>> boolean less(T first, T second) {
+
         return first.compareTo(second) < 0;
     }
 

@@ -1,5 +1,10 @@
 package com.algorithms.sorts;
 
+import java.util.Arrays;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.IntStream;
+
 import static com.algorithms.sorts.SortUtils.*;
 
 /**
@@ -24,16 +29,41 @@ public class BubbleSort implements SortAlgorithm{
             swapped = false;
             for(int j= 0; j< size - 1- i; j++){
                 if(less(array[j], array[j+1])){
-                    swap(array, array[j], array[j+1]);
+                    try{
+                        swap(array, j, j+1);
+                    }
+                    catch(Exception ex)
+                    {
+                        System.out.println("Swap operation failed");
+                    }
                     swapped = true;
-
                 }
             }
             if(!swapped) {
                 break;
-
             }
         }
         return array;
     }
+    //driver code
+    public static void main(String[] args) {
+
+        //creating sample data
+        Random number = ThreadLocalRandom.current();
+        int size = 100;
+        int maxElement = 200;
+
+        Integer[] integers = IntStream.generate(()-> number.nextInt(maxElement)).limit(size).boxed().toArray(Integer[]::new);
+
+        BubbleSort bubbleSort = new BubbleSort();
+        bubbleSort.sort(integers);
+
+        System.out.printf("Sorted integer array is: %s%n", Arrays.toString(integers));
+
+        // String Input
+        String[] strings = {"c", "a", "e", "b", "d"};
+        print(bubbleSort.sort(strings));
+
+    }
 }
+
