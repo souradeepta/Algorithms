@@ -28,7 +28,7 @@ public class BubbleSort implements SortAlgorithm{
         for(int i = 0; i < size - 1; i++){
             swapped = false;
             for(int j= 0; j< size - 1- i; j++){
-                if(less(array[j], array[j+1])){
+                if(less(array[j+1], array[j])){
                     try{
                         swap(array, j, j+1);
                     }
@@ -45,7 +45,7 @@ public class BubbleSort implements SortAlgorithm{
         }
         return array;
     }
-    //driver code
+    //driver program
     public static void main(String[] args) {
 
         //creating sample data

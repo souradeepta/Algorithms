@@ -45,7 +45,7 @@ public class LinearSearch implements SearchAlgorithm{
         return -1;
     }
 
-    //driver code
+    //driver program
     public static void main(String[] args){
         //generate sample data
         Random number = ThreadLocalRandom.current();

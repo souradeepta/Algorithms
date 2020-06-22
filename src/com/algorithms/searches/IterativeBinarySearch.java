@@ -58,7 +58,7 @@ public class IterativeBinarySearch implements SearchAlgorithm{
         return -1;
     }
 
-    //driver code
+    //driver program
     public static void main(String[] args) {
         Random number = ThreadLocalRandom.current();
         int size = 100;

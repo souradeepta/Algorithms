@@ -69,7 +69,7 @@ public class BinarySearch implements SearchAlgorithm{
         }
     }
 
-    //driver code
+    //driver program
     public static void main(String[] args){
         //generate sample data
         Random number = ThreadLocalRandom.current();
