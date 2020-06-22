@@ -1,7 +1,6 @@
 package com.algorithms.sorts;
 
-import static sorts.SortUtils.*;
-//import static com.sun.tools.javac.jvm.ByteCodes.swap;
+import static com.algorithms.sorts.SortUtils.*;
 
 /**
  * @author Souradeepta Biswas
@@ -24,8 +23,8 @@ public class BubbleSort implements SortAlgorithm{
         for(int i = 0; i < size - 1; i++){
             swapped = false;
             for(int j= 0; j< size - 1- i; j++){
-                if(less(array[j], array[j+1]){
-                    swap(array[j], array[j+1]);
+                if(less(array[j], array[j+1])){
+                    swap(array, array[j], array[j+1]);
                     swapped = true;
 
                 }
