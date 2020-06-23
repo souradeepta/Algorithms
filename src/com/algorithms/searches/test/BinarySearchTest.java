@@ -26,8 +26,7 @@ class BinarySearchTest {
             Integer target = 1;
             int result = -1;
             Assertions.assertEquals(result, suite.find(new Integer[]{}, target));
-        }
-        catch (ArrayIndexOutOfBoundsException ex){
+        } catch (ArrayIndexOutOfBoundsException ex) {
 //            Assertions.assertEquals(ArrayIndexOutOfBoundsException.class, ex);
             System.out.println("Array out of bounds");
         }
@@ -38,7 +37,7 @@ class BinarySearchTest {
         Integer target = 9;
         int result = -1;
         Assertions.assertEquals(result,
-                suite.find(new Integer[] { 0, 2, 4, 6, 8, 10, 12, 14, 16 }, target));
+                suite.find(new Integer[]{0, 2, 4, 6, 8, 10, 12, 14, 16}, target));
     }
 
     @Test
@@ -46,7 +45,7 @@ class BinarySearchTest {
         Integer target = 9;
         int result = -1;
         Assertions.assertEquals(result,
-                suite.find(new Integer[] { 0, 2, 4, 6, 8, 10, 12, 14, 16, 18 }, target));
+                suite.find(new Integer[]{0, 2, 4, 6, 8, 10, 12, 14, 16, 18}, target));
     }
 
     @Test
@@ -54,7 +53,7 @@ class BinarySearchTest {
         Integer target = 0;
         int result = 0;
         Assertions.assertEquals(result,
-                suite.find(new Integer[] { 0, 2, 4, 6, 8, 10, 12, 14, 16 }, target));
+                suite.find(new Integer[]{0, 2, 4, 6, 8, 10, 12, 14, 16}, target));
     }
 
     @Test
@@ -62,7 +61,7 @@ class BinarySearchTest {
         Integer target = 16;
         int result = 8;
         Assertions.assertEquals(result,
-                suite.find(new Integer[] { 0, 2, 4, 6, 8, 10, 12, 14, 16 }, target));
+                suite.find(new Integer[]{0, 2, 4, 6, 8, 10, 12, 14, 16}, target));
     }
 
     @Test
@@ -70,13 +69,13 @@ class BinarySearchTest {
         Integer target = 8;
         int result = 4;
         Assertions.assertEquals(result,
-                suite.find(new Integer[] { 0, 2, 4, 6, 8, 10, 12, 14, 16 }, target));
+                suite.find(new Integer[]{0, 2, 4, 6, 8, 10, 12, 14, 16}, target));
     }
 
     // covers the 'true' cases above
     @Test
     public void shouldReturnTrueIfFoundAnywhereInSortedArray() {
-        Integer [] sorted = new Integer[] { 0, 2, 4, 6, 8, 10, 12, 14, 16 };
+        Integer[] sorted = new Integer[]{0, 2, 4, 6, 8, 10, 12, 14, 16};
 
         for (int i = 0; i < sorted.length; i++) {
             Assertions.assertEquals(i, suite.find(sorted, sorted[i]));
@@ -86,12 +85,12 @@ class BinarySearchTest {
     // covers the 'false' cases above
     @Test
     public void shouldReturnFalseIfNotFoundInSortedArray() {
-        Integer[] sorted = new Integer[] { 0, 2, 4, 6, 8, 10, 12, 14, 16 };
+        Integer[] sorted = new Integer[]{0, 2, 4, 6, 8, 10, 12, 14, 16};
         int result = -1;
         Assertions.assertEquals(result, suite.find(sorted, sorted[0] - 1));
 
-        for (int i = 0; i < sorted.length; i++) {
-            Assertions.assertEquals(result, suite.find(sorted, sorted[i] + 1));
+        for (Integer integer : sorted) {
+            Assertions.assertEquals(result, suite.find(sorted, integer + 1));
         }
     }
 

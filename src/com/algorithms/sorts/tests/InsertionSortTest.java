@@ -1,19 +1,20 @@
 package com.algorithms.sorts.tests;
 
-import com.algorithms.sorts.SelectionSort;
+import com.algorithms.sorts.InsertionSort;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class SelectionSortTest {
+class InsertionSortTest {
 
-    private SelectionSort suite;
+    private InsertionSort suite;
 
     @BeforeEach
     public void setUp() throws Exception {
-        suite = new SelectionSort();
+        suite = new InsertionSort();
     }
+
 
     @AfterEach
     public void tearDown() {

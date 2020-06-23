@@ -24,7 +24,7 @@ public final class SortUtils {
 //        second = temp;
 //        return true;
 //    }
-    static <T> boolean swap(T[] array, int idx, int idy){
+    static <T> boolean swap(T[] array, int idx, int idy) {
         T temp = array[idx];
         array[idx] = array[idy];
         array[idy] = temp;
@@ -34,7 +34,7 @@ public final class SortUtils {
     /**
      * This method checks if first element is less then the other element
      *
-     * @param first first element
+     * @param first  first element
      * @param second second element
      * @return true if the first element is less then the second element
      */

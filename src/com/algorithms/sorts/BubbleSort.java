@@ -50,15 +50,19 @@ public class BubbleSort implements SortAlgorithm{
 
         //creating sample data
         Random number = ThreadLocalRandom.current();
-        int size = 100;
+        int size = 1000;
         int maxElement = 200;
 
         Integer[] integers = IntStream.generate(()-> number.nextInt(maxElement)).limit(size).boxed().toArray(Integer[]::new);
 
         BubbleSort bubbleSort = new BubbleSort();
-        bubbleSort.sort(integers);
 
-        System.out.printf("Sorted integer array is: %s%n", Arrays.toString(integers));
+        long startTime = System.nanoTime();
+        bubbleSort.sort(integers);
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
+
+        System.out.printf("Sorted integer array of size %d is: %s%n found in: %d ms\n", integers.length, Arrays.toString(integers), duration);
 
         // String Input
         String[] strings = {"c", "a", "e", "b", "d"};

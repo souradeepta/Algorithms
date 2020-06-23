@@ -30,12 +30,12 @@ class BubbleSortTest {
     public void shouldDoNothingWithOneElementArray() {
         Integer[] values = {42};
         suite.sort(values);
-        Assertions.assertArrayEquals(new Integer[] {42}, values);
+        Assertions.assertArrayEquals(new Integer[]{42}, values);
     }
 
     @Test
     public void shouldSortValues() {
-        Integer[] values = { 9, -3, 5, 0, 1};
+        Integer[] values = {9, -3, 5, 0, 1};
         Integer[] expectedOrder = {-3, 0, 1, 5, 9};
         suite.sort(values);
         Assertions.assertArrayEquals(expectedOrder, values);

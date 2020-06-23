@@ -6,53 +6,51 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.IntStream;
 
 import static com.algorithms.sorts.SortUtils.less;
-import static com.algorithms.sorts.SortUtils.swap;
+import static com.algorithms.sorts.SortUtils.print;
 
 /**
  * @author Souradeepta Biswas
  * @author Varun Upadhyay (https://github.com/varunu28)
  * @author Podshivalov Nikita (https://github.com/nikitap492)
- * @see SortAlgorithm
  */
-public class SelectionSort implements SortAlgorithm {
+public class InsertionSort implements SortAlgorithm {
 
     /**
-     * This method implements the Generic Selection Sort
+     * This method implements the Generic Insertion Sort
+     * Sorts the array in increasing order
      *
      * @param array The array to be sorted
-     *              Sorts the array in increasing order
      **/
-    @Override
     public <T extends Comparable<T>> T[] sort(T[] array) {
         int size = array.length;
-        for (int i = 0; i < size - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < size; j++) {
-                if (less(array[j], array[minIndex])) {
-                    minIndex = j;
-                }
+        for (int i = 0; i < size; i++) {
+
+            // Picking up the key
+            T key = array[i];
+            int j = i - 1;
+            while (j >= 0 && (less(key, array[j]))) {
+                array[j + 1] = array[j];
+                j--;
             }
-            // Swapping if index of min is changed
-            if (minIndex != i) {
-                swap(array, i, minIndex);
-            }
+            // Placing the key at its correct position in the sorted subarray
+            array[j + 1] = key;
         }
         return array;
     }
 
     // driver program
     public static void main(String[] args) {
-
-        //generate sample data
+        //generate data
         Random number = ThreadLocalRandom.current();
         int size = 1000;
         int maxElement = 200;
+
         Integer[] integers = IntStream.generate(() -> number.nextInt(maxElement)).limit(size).boxed().toArray(Integer[]::new);
 
-        SelectionSort selectionSort = new SelectionSort();
+        InsertionSort insertionSort = new InsertionSort();
 
         long startTime = System.nanoTime();
-        selectionSort.sort(integers);
+        insertionSort.sort(integers);
         long endTime = System.nanoTime();
         long duration = (endTime - startTime)/1000000;  //divide by 1000000 to get milliseconds.
 
@@ -60,9 +58,8 @@ public class SelectionSort implements SortAlgorithm {
 
         // String Input
         String[] strings = {"c", "a", "e", "b", "d"};
-        String[] sortedStrings = selectionSort.sort(strings);
-
-        //Output => a	b	 c  d	e
-        SortUtils.print(sortedStrings);
+        print(insertionSort.sort(strings));
     }
+
 }
+
